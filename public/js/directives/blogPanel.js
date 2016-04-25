@@ -1,4 +1,4 @@
-angular.module('blogonApp').directive('blogPanel',function(){
+angular.module('blogonApp').directive('blogPanel',['$location',function($location){
     return{
         restrict: 'E',
         transclude: true,
@@ -12,6 +12,14 @@ angular.module('blogonApp').directive('blogPanel',function(){
             authorId: '@'
         },
         controller: function($scope){
+            $scope.navigateToAuthor = function(){
+                console.log("navigate to author");
+                $location.path('/profile/:'+$scope.authorId)
+            };
+
+            $scope.navigateToBlog = function(){
+                $location.path('/blogPage/:'+$scope.id);
+            };
         }
     }
-});
+}]);

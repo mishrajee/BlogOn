@@ -1,3 +1,18 @@
-<h1>Blog Panel</h1>
-{{name}}
-{{id}}
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="default" md-theme-watch>
+            <md-card-title>
+                <md-card-title-text>
+                    <md-card-actions layout="row" layout-align="center">
+                        <md-button ng-click="navigateToBlog()" class="md-headline">{{name}}</md-button>
+                    </md-card-actions>
+                    <span class="md-subhead">{{summary}}</span>
+                    <span class="md-subhead">{{date}}</span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="navigateToAuthor()">- {{authorName}}</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+</md-content>

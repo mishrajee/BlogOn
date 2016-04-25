@@ -1,4 +1,4 @@
-angular.module('blogonApp').controller('homeController',['$scope','$routeParams','$mdDialog',function($scope,$routeParams,$mdDialog){
+angular.module('blogonApp').controller('homeController',['$scope','$location',function($scope,$location){
     console.log("home controller.....");
     $scope.homeMessage = "home message";
 
@@ -6,7 +6,7 @@ angular.module('blogonApp').controller('homeController',['$scope','$routeParams'
         {name:'sample B',id:'8879',summary:'this is smaple B',date:'31/02/2016',authorName: 'IOPS',authorId:'2'}];
 
     $scope.submit = function(){
-        console.log($scope.queryString);
+        $location.path('/search/:'+$scope.queryString);
     };
 
 }]);
