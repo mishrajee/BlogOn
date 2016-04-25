@@ -14,11 +14,11 @@ angular.module('blogonApp').directive('blogPanel',['$location',function($locatio
         controller: function($scope){
             $scope.navigateToAuthor = function(){
                 console.log("navigate to author");
-                $location.path('/profile/:'+$scope.authorId)
+                $location.path('/profile/'+$scope.authorId)
             };
 
             $scope.navigateToBlog = function(){
-                $location.path('/blogPage/:'+$scope.id);
+                $location.path('/blogPage/'+$scope.id);
             };
         }
     }
