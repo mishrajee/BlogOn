@@ -24,7 +24,7 @@ gulp.task('inject',function(){
         ignorePath: '../../public'
     };
 
-    var injectSrc = gulp.src(['./public/css/*.css','./public/js/*.js'],{read: false});
+    var injectSrc = gulp.src(['./public/css/*.css','./public/js/**/*.js'],{read: false});
     var injectOptions = {
         ignorePath: '/public'
     };

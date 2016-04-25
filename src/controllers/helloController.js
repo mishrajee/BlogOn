@@ -1,6 +1,7 @@
 var helloController = function(msg){
     var getMsg = function(req,res){
-        res.render('hello',{msg:msg});
+        console.log("hello controller........   ");
+        res.render('hello',{msg:'kkokoko'});
     };
 
     return {

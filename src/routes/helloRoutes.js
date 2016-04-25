@@ -3,7 +3,7 @@ var helloRouter = express.Router();
 
 var router = function(msg){
     var helloController = require('../controllers/helloController')(msg);
-
+    console.log("hello route ...");
     helloRouter.route('/')
         .get(helloController.getMsg);
 

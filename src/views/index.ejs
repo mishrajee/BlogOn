@@ -1,25 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="blogonApp">
 <head>
     <!-- bower:css -->
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/lib/angular-material/angular-material.css" />
     <!-- endbower -->
 
     <!-- bower:js -->
     <script src="/lib/jquery/dist/jquery.js"></script>
     <script src="/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular-route/angular-route.js"></script>
+    <script src="/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="/lib/angular-animate/angular-animate.js"></script>
+    <script src="/lib/angular-aria/angular-aria.js"></script>
+    <script src="/lib/angular-messages/angular-messages.js"></script>
+    <script src="/lib/angular-material/angular-material.js"></script>
     <!-- endbower -->
 
     <!-- inject:css -->
+    <link rel="stylesheet" href="/css/main.css">
     <!-- endinject -->
 
     <!-- inject:js -->
-    <script src="/js/test.js"></script>
+    <script src="/js/app.js"></script>
+    <script src="/js/controllers/homeController.js"></script>
+    <script src="/js/controllers/mainController.js"></script>
     <!-- endinject -->
 
 </head>
-<body>
-<h1>Hello from index.ejs</h1>
+<body >
+<div ng-cloak ng-controller="mainController">
+        <md-content id="top-nav-bar">
+            <md-tabs md-dynamic-height md-border-bottom>
+                <md-tab label="one" ng-click="navigateToUrl('/home')">
+                </md-tab>
+                <md-tab label="two" ng-click="navigateToUrl('/')">
+                </md-tab>
+                <md-tab label="three">
+                </md-tab>
+            </md-tabs>
+        </md-content>
+    <md-menu id="user-pic-menu">
+        <md-button aria-label="Profile Menu" ng-click="openMenu($mdOpenMenu, $event)">
+            <img id="user-pic" ng-src="/images/user_no_profile.png">
+        </md-button>
+        <md-menu-content width="4">
+            <md-menu-item>
+                <md-button>
+                    Item1
+                </md-button>
+            </md-menu-item>
+        </md-menu-content>
+    </md-menu>
+    </div>
+<div ng-view></div>
 </body>
 </html>
