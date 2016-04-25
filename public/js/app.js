@@ -22,7 +22,7 @@ angular.module('blogonApp').config(['$routeProvider',function($routeProvider){
             templateUrl: 'submitBlog.ejs',
             controller: 'submitBlogController'
         })
-        .when('blogPage/:blogId',{
+        .when('/blogPage/:blogId',{
             templateUrl: 'blogPage.ejs',
             controller: 'blogPageController'
         });
