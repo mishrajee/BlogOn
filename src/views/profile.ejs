@@ -1,0 +1,9 @@
+<p>Name : {{profile.name}}</p>
+<p>{{profile.gender}}</p>
+<p>Occupation : {{profile.occupation}}</p>
+<p>About : {{profile.about}}</p>
+<p>Blogs by user : </p>
+
+<div ng-repeat="blogData in blogs">
+    <blog-panel name="{{blogData.name}}" id="{{blogData.id}}" summary="{{blogData.summary}}" date="{{blogData.date}}" author-name="{{blogData.authorName}}" author-id="{{blogData.authorId}}"></blog-panel>
+</div>
