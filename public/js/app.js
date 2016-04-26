@@ -25,5 +25,13 @@ angular.module('blogonApp').config(['$routeProvider',function($routeProvider){
         .when('/blogPage/:blogId',{
             templateUrl: 'blogPage.ejs',
             controller: 'blogPageController'
+        })
+        .when('/signup',{
+            templateUrl: 'signup.ejs',
+            controller: 'signupController'
+        })
+        .when('/login',{
+            templateUrl: 'login.ejs',
+            controller: 'loginController'
         });
 }]);
