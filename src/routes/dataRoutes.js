@@ -19,6 +19,9 @@ var router = function(){
     dataRouter.route('/submitBlog')
         .post(dataController.submitBlog);
 
+    dataRouter.route('/getBlogsByProfileId/:profileId')
+        .get(dataController.getBlogsByProfileId);
+
     return dataRouter;
 };
 

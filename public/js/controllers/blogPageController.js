@@ -1,10 +1,11 @@
-angular.module('blogonApp').controller('blogPageController',['$scope','$location','$routeParams',function($scope,$location,$routeParams){
+angular.module('blogonApp').controller('blogPageController',['$scope','$location','$routeParams','apiFactory',function($scope,$location,$routeParams,apiFactory){
     var blogId = $routeParams.blogId;
-
-    var profileId = '20';
-
-    $scope.blog = {name:'sample A',id:'7887',summary:'this is smaple A',date:'30/02/2016',authorName: 'ABCS',authorId:'20',content:'This is the content of this material'};
-
+    var profileId;
+    apiFactory.getBlogById(blogId).then(function(data){
+        $scope.blog = data;
+        profileId = $scope.blog.authorId;
+    });
+    
     $scope.navigateToAuthor = function(){
         $location.path('/profile/'+profileId);
     };

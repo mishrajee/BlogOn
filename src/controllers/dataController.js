@@ -39,12 +39,19 @@ var dataController = function(){
         res.json(req.body);
     };
 
+    var getBlogsByProfileId = function(req,res){
+        var profileId = req.params.profileId;
+        console.log("request received for blogs of profile id "+profileId);
+        res.json(blogs);
+    };
+
     return {
         getAllBlogs: getAllBlogs,
         searchBlogs: searchBlogs,
         getBlogById: getBlogById,
         getAuthor: getAuthor,
-        submitBlog: submitBlog
+        submitBlog: submitBlog,
+        getBlogsByProfileId: getBlogsByProfileId
     };
 };
 
