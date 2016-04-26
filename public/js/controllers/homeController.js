@@ -1,4 +1,4 @@
-angular.module('blogonApp').controller('homeController',['$scope','$location','apiFactory',function($scope,$location,apiFactory){
+angular.module('blogonApp').controller('homeController',['$scope','$location','apiFactory','CONSTANTS',function($scope,$location,apiFactory,CONSTANTS){
     console.log("home controller.....");
     $scope.homeMessage = "home message";
 
@@ -11,7 +11,7 @@ angular.module('blogonApp').controller('homeController',['$scope','$location','a
 
 
     $scope.submit = function(){
-        $location.path('/search/'+$scope.queryString);
+        $location.path(CONSTANTS.PATH.SEARCH+ '/'+$scope.queryString);
     };
 
 }]);

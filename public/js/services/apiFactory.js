@@ -1,49 +1,19 @@
 angular.module('blogonApp').factory('apiFactory',['CONSTANTS','$http',function(CONSTANTS,$http){
 
-    var getAllBlogData = function(){
+    var httpGetCall = function(url){
         return $http({
             method: 'GET',
-            url: CONSTANTS.API.GET_ALL_BLOGS
+            url: url
         }).then(function(res){
             console.log(res);
             return res.data;
         });
     };
 
-    var searchBlog = function(query){
-        return $http({
-            method: 'GET',
-            url: CONSTANTS.API.SEARCH+'/'+query
-        }).then(function(res){
-            console.log(res)
-            return res.data;
-        });
-    };
-
-    var getBlogById = function(id){
-        return $http({
-            method: 'GET',
-            url: CONSTANTS.API.GET_BLOG_BY_ID+'/'+id
-        }).then(function(res){
-            console.log(res);
-            return res.data;
-        });
-    };
-
-    var getAuthor = function(id){
-        return $http({
-            method: 'GET',
-            url: CONSTANTS.API.GET_AUTHOR+'/'+id
-        }).then(function(res){
-            console.log(res);
-            return res.data;
-        });
-    };
-
-    var submitBlog = function(body){
+    var httpPostCall = function(url,body){
         return $http({
             method: 'POST',
-            url: CONSTANTS.API.SUBMIT_BLOG,
+            url: url,
             data: body
         }).then(function(res){
             console.log(res);
@@ -51,17 +21,29 @@ angular.module('blogonApp').factory('apiFactory',['CONSTANTS','$http',function(C
         });
     };
 
-    var getBlogsByProfileId = function(id){
-        return $http({
-            method: 'GET',
-            url: CONSTANTS.API.GET_BLOG_BY_PROFILE_ID + '/' +id
-        }).then(function(res){
-            console.log(res);
-            return res.data;
-        });
+    var getAllBlogData = function(){
+        return httpGetCall(CONSTANTS.API.GET_ALL_BLOGS);
     };
 
+    var searchBlog = function(query){
+        return httpGetCall(CONSTANTS.API.SEARCH+'/'+query);
+    };
 
+    var getBlogById = function(id){
+        return httpGetCall(CONSTANTS.API.GET_BLOG_BY_ID+'/'+id);
+    };
+
+    var getAuthor = function(id){
+        return httpGetCall(CONSTANTS.API.GET_AUTHOR+'/'+id);
+    };
+
+    var submitBlog = function(body){
+        return httpPostCall(CONSTANTS.API.SUBMIT_BLOG, body);
+    };
+
+    var getBlogsByProfileId = function(id){
+        return httpGetCall(CONSTANTS.API.GET_BLOG_BY_PROFILE_ID + '/' +id);
+    };
 
 
     return {

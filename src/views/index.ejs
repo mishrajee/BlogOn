@@ -17,6 +17,7 @@
     <script src="/lib/angular-aria/angular-aria.js"></script>
     <script src="/lib/angular-messages/angular-messages.js"></script>
     <script src="/lib/angular-material/angular-material.js"></script>
+    <script src="/lib/angular-cookies/angular-cookies.js"></script>
     <!-- endbower -->
 
     <!-- inject:css -->
@@ -36,6 +37,7 @@
     <script src="/js/controllers/submitBlogController.js"></script>
     <script src="/js/directives/blogPanel.js"></script>
     <script src="/js/services/apiFactory.js"></script>
+    <script src="/js/services/authFactory.js"></script>
     <!-- endinject -->
 
 </head>
@@ -56,9 +58,9 @@
             <img id="user-pic" ng-src="/images/user_no_profile.png">
         </md-button>
         <md-menu-content width="4">
-            <md-menu-item>
-                <md-button>
-                    Item1
+            <md-menu-item ng-repeat="item in menuItems" ng-show="item.showWhenLoggedIn === isLoggedIn">
+                <md-button ng-click="menuClick(item.path)">
+                    {{item.name}}
                 </md-button>
             </md-menu-item>
         </md-menu-content>

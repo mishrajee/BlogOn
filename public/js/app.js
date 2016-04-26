@@ -1,4 +1,4 @@
-angular.module('blogonApp',['ngRoute','ngMaterial']);
+angular.module('blogonApp',['ngRoute','ngMaterial','ngCookies']);
 
 angular.module('blogonApp').config(['$routeProvider',function($routeProvider){
     $routeProvider
