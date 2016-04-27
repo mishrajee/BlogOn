@@ -1,4 +1,4 @@
-angular.module('blogonApp').controller('submitBlogController',['$scope','apiFactory','$cookies','CONSTANTS','$location',function($scope,apiFactory,$cookies,CONSTANTS,$location){
+angular.module('blogonApp').controller('submitBlogController',['$scope','apiFactory','$cookies','CONSTANTS','$location','commonUtilityFactory',function($scope,apiFactory,$cookies,CONSTANTS,$location,commonUtilityFactory){
 
     if($cookies.get(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN)==='true'){
         $scope.isLoggedIn = true;
@@ -10,11 +10,13 @@ angular.module('blogonApp').controller('submitBlogController',['$scope','apiFact
     var authorName = $cookies.get(CONSTANTS.COOKIES.USER_NAME);
 
     $scope.submit = function(){
+        var blogDate = commonUtilityFactory.getCurrentDate();
+
         var blog = {
             name: $scope.name,
             summary: $scope.summary,
             content: $scope.content,
-            date: $scope.date,
+            date: blogDate,
             authorId: authorId,
             authorName: authorName
         };

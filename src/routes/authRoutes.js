@@ -50,6 +50,12 @@ var router = function(){
             })(req,res,next);
         });
 
+    authRouter.route('/logout')
+        .get(function(req,res){
+            req.logout();
+            res.json({success: true});
+        });
+
     return authRouter;
 
 };

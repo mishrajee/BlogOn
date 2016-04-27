@@ -1,4 +1,4 @@
-angular.module('blogonApp').controller('signupController',['$scope','authFactory','$location','CONSTANTS',function($scope,authFactory,$location,CONSTANTS){
+angular.module('blogonApp').controller('signupController',['$scope','authFactory','$location','CONSTANTS','commonUtilityFactory',function($scope,authFactory,$location,CONSTANTS,commonUtilityFactory){
     $scope.userExist = false;
     $scope.passwordMisMatch = false;
     //redirect to home if already logged in
@@ -9,6 +9,8 @@ angular.module('blogonApp').controller('signupController',['$scope','authFactory
         }
         $scope.passwordMisMatch = false;
 
+        var doj = commonUtilityFactory.getCurrentDate();
+
         var body = {
             username: $scope.username,
             password: $scope.password,
@@ -16,7 +18,7 @@ angular.module('blogonApp').controller('signupController',['$scope','authFactory
             gender: $scope.gender,
             occupation: $scope.occupation,
             about: $scope.about,
-            doj: '2016-07-14T12:30:00'
+            doj: doj
         };
 
         authFactory.signup(body).then(function(resp){

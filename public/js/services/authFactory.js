@@ -26,7 +26,7 @@ angular.module('blogonApp').factory('authFactory',['CONSTANTS','$http',function(
             method: 'GET',
             url: CONSTANTS.AUTH.LOGOUT
         }).then(function(res){
-            console.log(res);
+            return res.data;
         });
 
     };

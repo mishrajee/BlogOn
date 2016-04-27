@@ -1,7 +1,6 @@
 var dataController = function(esService){
 
     var getAllBlogs = function(req,res){
-        console.log(req.user);
         //search ES for blogs and return
         console.log("request received for all blog data");
         esService.getAllBlogs().then(function(data){
@@ -36,8 +35,16 @@ var dataController = function(esService){
 
     var submitBlog = function(req,res){
         //authenticate and put data in ES
+        if(!req.user){
+            //not authorized to submit blog
+            res.redirect('/');
+        }
+
         console.log("request received for submitting a blog");
         var body = req.body;
+        //author id should be taken from session object only
+        body.authorId = req.user.id;
+
         esService.addBlog(body).then(function(resp){
             console.log(resp);
             res.json(resp);
