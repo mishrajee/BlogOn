@@ -2,7 +2,7 @@ angular.module('blogonApp').controller('mainController',['$scope','$mdDialog','$
     console.log("hello from main controller");
 
     $scope.profileId = 90;
-    $scope.isLoggedIn = false;
+    $scope.isLoggedIn = true;
     $scope.menuItems = [
         {
             name: 'My Profile',

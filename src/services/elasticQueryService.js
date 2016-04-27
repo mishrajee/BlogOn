@@ -8,6 +8,19 @@ var esClient = new elasticsearch.Client({
 
 var service = function(){
 
+    //add user
+    var addUser = function(body){
+        return esClient.index({
+            index: CONSTANTS.INDEX,
+            type: CONSTANTS.TYPE_USERS,
+            body: body
+        }).then(function(resp){
+            return resp;
+        }, function(err){
+            console.log("error in es call");
+        });
+    };
+
     //search blogs with given author id field
     var searchBlogByProfileId = function(profileId){
         return esClient.search({
@@ -104,7 +117,7 @@ var service = function(){
 
     };
 
-    //check if user of a given username exist or not
+    //return true or false based on if username exist or not
     var isUserExist = function(userName){
         return esClient.search({
             index: CONSTANTS.INDEX,
@@ -118,7 +131,10 @@ var service = function(){
             }
         }).then(function(resp){
             var hits = resp.hits.hits;
-            console.log(hits);
+            if(hits.length > 0){
+                return true;
+            }
+            return false;
         }, function(err){
             console.log("Error in ES call");
         });
@@ -132,7 +148,8 @@ var service = function(){
         getBlogById: getBlogById,
         getAuthorById: getAuthorById,
         addBlog: addBlog,
-        searchBlogByProfileId: searchBlogByProfileId
+        searchBlogByProfileId: searchBlogByProfileId,
+        addUser: addUser
     };
 
 
