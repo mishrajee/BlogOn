@@ -13,7 +13,7 @@ angular.module('blogonApp').constant('CONSTANTS',(function(){
             PROFILE: '/profile',
             SEARCH: '/search',
             SIGNUP: '/signup',
-            SUBMIT_BLOG: '/submitBog',
+            SUBMIT_BLOG: '/submitBlog',
             LOGIN: '/login',
             LOGOUT: '/logout',
             BLOG_PAGE: '/blogPage'
@@ -26,7 +26,8 @@ angular.module('blogonApp').constant('CONSTANTS',(function(){
         },
         COOKIES: {
             KEY_IS_LOGGED_IN: 'is_logged_in',
-            USER_ID: 'user_id'
+            USER_ID: 'user_id',
+            USER_NAME: 'user_name'
         }
     };
 })());

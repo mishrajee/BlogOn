@@ -22,7 +22,7 @@ var router = function(){
                         if(err){
                             next(err);
                         }
-                        return res.json({id: user._id});
+                        return res.json({id: user._id, name: user._source.name});
                     });
                 }
             })(req,res,next);
@@ -36,12 +36,12 @@ var router = function(){
                     return res.json({});
                 }else{
                     //login success
-                    req.login(user,function(err){
+                    req.login(user.id,function(err){
                         if(err){
                             //error handling
                             return next(err);
                         }
-                        return  res.json({id: user});
+                        return  res.json({id: user.id, name:user.name});
 
                     });
 

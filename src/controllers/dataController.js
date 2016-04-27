@@ -1,6 +1,7 @@
 var dataController = function(esService){
 
     var getAllBlogs = function(req,res){
+        console.log(req.user);
         //search ES for blogs and return
         console.log("request received for all blog data");
         esService.getAllBlogs().then(function(data){

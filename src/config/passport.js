@@ -62,7 +62,7 @@ var passportFun = function(app){
         esService.matchPassword(username,password).then(function(resp){
             if(resp.length>0){
                 //login success
-                var user = resp[0]._id;
+                var user = {id: resp[0]._id, name: resp[0]._source.name};
                 return done(null,user);
             }else {
                 //login failed

@@ -18,6 +18,8 @@ angular.module('blogonApp').controller('loginController',['$scope','$location','
                 //set cookies
                 $cookies.put(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN,true);
                 $cookies.put(CONSTANTS.COOKIES.USER_ID,res.id);
+                $cookies.put(CONSTANTS.COOKIES.USER_NAME,res.name);
+
                 $location.path(CONSTANTS.PATH.PROFILE + '/' + res.id);
             }else {
                 //login failed
