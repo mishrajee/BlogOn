@@ -1,3 +1,9 @@
+<div ng-show="userExist">
+    Username already exist
+</div>
+<div ng-show="passwordMisMatch">
+    Password and confirm password do not match
+</div>
 <form>
     UserName : <input type="text" ng-model="username"></br>
     Password : <input type="password" ng-model="password"></br>
