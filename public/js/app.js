@@ -37,5 +37,8 @@ angular.module('blogonApp').config(['$routeProvider',function($routeProvider){
         .when('/logout',{
             templateUrl: 'logout.ejs',
             controller: 'logoutController'
+        })
+        .otherwise({
+            redirectTo: '/home'
         });
 }]);
