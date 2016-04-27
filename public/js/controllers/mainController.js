@@ -1,8 +1,13 @@
-angular.module('blogonApp').controller('mainController',['$scope','$mdDialog','$location','CONSTANTS',function($scope,$mdDialog,$location,CONSTANTS){
+angular.module('blogonApp').controller('mainController',['$scope','$mdDialog','$location','CONSTANTS','$cookies',function($scope,$mdDialog,$location,CONSTANTS,$cookies){
     console.log("hello from main controller");
 
-    $scope.profileId = 90;
-    $scope.isLoggedIn = true;
+    $scope.profileId = $cookies.get(CONSTANTS.COOKIES.USER_ID);
+    if($cookies.get(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN)==='true'){
+        $scope.isLoggedIn = true;
+    }else{
+        $scope.isLoggedIn = false;
+    }
+
     $scope.menuItems = [
         {
             name: 'My Profile',
@@ -41,6 +46,14 @@ angular.module('blogonApp').controller('mainController',['$scope','$mdDialog','$
 
     var originatorEv;
     $scope.openMenu = function($mdOpenMenu,ev){
+        $scope.profileId = $cookies.get(CONSTANTS.COOKIES.USER_ID);
+        if($cookies.get(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN)==='true'){
+            $scope.isLoggedIn = true;
+        }else{
+            $scope.isLoggedIn = false;
+        }
+
+
         //check in cookies first
         originatorEv = ev;
         $mdOpenMenu(ev);

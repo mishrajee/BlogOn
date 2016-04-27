@@ -33,5 +33,9 @@ angular.module('blogonApp').config(['$routeProvider',function($routeProvider){
         .when('/login',{
             templateUrl: 'login.ejs',
             controller: 'loginController'
+        })
+        .when('/logout',{
+            templateUrl: 'logout.ejs',
+            controller: 'logoutController'
         });
 }]);

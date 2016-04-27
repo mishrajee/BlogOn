@@ -9,6 +9,7 @@ angular.module('blogonApp').constant('CONSTANTS',(function(){
             GET_BLOG_BY_PROFILE_ID: '/data/getBlogsByProfileId'
         },
         PATH: {
+            HOME: '/home',
             PROFILE: '/profile',
             SEARCH: '/search',
             SIGNUP: '/signup',
@@ -20,7 +21,12 @@ angular.module('blogonApp').constant('CONSTANTS',(function(){
         AUTH: {
             LOGIN: '/auth/login',
             SIGNUP: '/auth/signup',
-            USER_EXIST: '/auth/userExist'
+            USER_EXIST: '/auth/userExist',
+            LOGOUT: '/auth/logout'
+        },
+        COOKIES: {
+            KEY_IS_LOGGED_IN: 'is_logged_in',
+            USER_ID: 'user_id'
         }
     };
 })());

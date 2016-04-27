@@ -21,9 +21,20 @@ angular.module('blogonApp').factory('authFactory',['CONSTANTS','$http',function(
         });
     };
 
+    var logout = function(){
+        return $http({
+            method: 'GET',
+            url: CONSTANTS.AUTH.LOGOUT
+        }).then(function(res){
+            console.log(res);
+        });
+
+    };
+
     return {
         login: login,
-        signup: signup
+        signup: signup,
+        logout: logout
     };
 
 }]);
