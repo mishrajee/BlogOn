@@ -2,11 +2,17 @@ angular.module('blogonApp').controller('homeController',['$scope','$location','a
     console.log("home controller.....");
     $scope.homeMessage = "home message";
 
-    $scope.blogs =[];
+    $scope.blogs= [];
 
     apiFactory.getAllBlogData().then(function(res){
+        $scope.blogs= [];
         console.log("got data from factory");
-        $scope.blogs = res;
+        console.log(res);
+        for(var data in res){
+            var blog = res[data]._source;
+            blog.id = res[data]._id;
+            $scope.blogs.push(blog);
+        };
     });
 
 

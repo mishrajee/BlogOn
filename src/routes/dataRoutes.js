@@ -2,7 +2,8 @@ var express = require('express');
 var dataRouter = express.Router();
 
 var router = function(){
-    var dataController = require('../controllers/dataController')();
+    var esService = require('../services/elasticQueryService')();
+    var dataController = require('../controllers/dataController')(esService);
 
     dataRouter.route('/getAllBlogs')
         .get(dataController.getAllBlogs);

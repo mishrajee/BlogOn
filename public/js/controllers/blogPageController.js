@@ -2,7 +2,8 @@ angular.module('blogonApp').controller('blogPageController',['$scope','$location
     var blogId = $routeParams.blogId;
     var profileId;
     apiFactory.getBlogById(blogId).then(function(data){
-        $scope.blog = data;
+        $scope.blog = data._source;
+        $scope.blog.id = data._id;
         profileId = $scope.blog.authorId;
     });
 

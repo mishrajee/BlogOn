@@ -1,13 +1,13 @@
 <div ng-hide="isLoggedIn">
-    Please Log in first
+    Please Login first
 </div>
 
-<div ng-view="isLoggedIn">
-<form>
-    Title : <input type="text" ng-model="title"></br>
-    Summary : <input type="text" ng-model="summary"></br>
-    Content : <input type="text" ng-model="content"></br>
-    Date : <input type="date" ng-model="date"></br>
-    Submit <input type="submit" ng-click="submit()">
-</form>
+<div ng-show="isLoggedIn">
+    <form>
+        Title : <input type="text" ng-model="name"></br>
+        Summary : <input type="text" ng-model="summary"></br>
+        Content : <input type="text" ng-model="content"></br>
+        Date : <input type="date" ng-model="date"></br>
+        <button type="submit" ng-click="submit()">Submit</button>
+    </form>
 </div>

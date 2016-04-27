@@ -14,9 +14,8 @@ angular.module('blogonApp').constant('CONSTANTS',(function(){
             SIGNUP: '/signup',
             SUBMIT_BLOG: '/submitBog',
             LOGIN: '/login',
-            LOGOUT: '/logout'
-
-
+            LOGOUT: '/logout',
+            BLOG_PAGE: '/blogPage'
         },
         AUTH: {
             LOGIN: '/auth/login',

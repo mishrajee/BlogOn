@@ -1,4 +1,4 @@
-angular.module('blogonApp').directive('blogPanel',['$location',function($location){
+angular.module('blogonApp').directive('blogPanel',['$location','CONSTANTS',function($location,CONSTANTS){
     return{
         restrict: 'E',
         transclude: true,
@@ -14,11 +14,11 @@ angular.module('blogonApp').directive('blogPanel',['$location',function($locatio
         controller: function($scope){
             $scope.navigateToAuthor = function(){
                 console.log("navigate to author");
-                $location.path('/profile/'+$scope.authorId)
+                $location.path(CONSTANTS.PATH.PROFILE+'/'+$scope.authorId)
             };
 
             $scope.navigateToBlog = function(){
-                $location.path('/blogPage/'+$scope.id);
+                $location.path(CONSTANTS.PATH.BLOG_PAGE+'/'+$scope.id);
             };
         }
     }

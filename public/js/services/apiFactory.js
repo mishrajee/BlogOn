@@ -1,5 +1,6 @@
 angular.module('blogonApp').factory('apiFactory',['CONSTANTS','$http',function(CONSTANTS,$http){
 
+    //generic http get call to ES endpoint input url and returns response.data
     var httpGetCall = function(url){
         return $http({
             method: 'GET',
@@ -10,6 +11,7 @@ angular.module('blogonApp').factory('apiFactory',['CONSTANTS','$http',function(C
         });
     };
 
+    //generic post call to call to ES endpoint with input url with input body and return response
     var httpPostCall = function(url,body){
         return $http({
             method: 'POST',
