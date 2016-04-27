@@ -9,12 +9,12 @@ var passportFun = function(app){
 
     //serialize user for the session
     passport.serializeUser(function(user,done){
-        done(null,user.id);
+        done(null,user);
     });
 
     //deserialize user from session
     passport.deserializeUser(function(user,done){
-        done(null,user.id);
+        done(null,user);
     });
 
     //use signup strategy for signup requests
@@ -49,6 +49,28 @@ var passportFun = function(app){
 
 
         });
+    }));
+
+    //strategy for local login
+    passport.use('local-login', new LocalStrategy({
+        usernameField: 'username',
+        passwordField: 'password',
+        passReqToCallback: true
+
+    }, function(req,username,password,done){
+        // find user and match with password in db
+        esService.matchPassword(username,password).then(function(resp){
+            if(resp.length>0){
+                //login success
+                var user = resp[0]._id;
+                return done(null,user);
+            }else {
+                //login failed
+                return done(null,false);
+            }
+        });
+
+
     }));
 
 

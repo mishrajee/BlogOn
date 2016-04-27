@@ -7,6 +7,33 @@ var esClient = new elasticsearch.Client({
 });
 
 var service = function(){
+    //match username and password return matched document
+    var matchPassword = function(username,password){
+        return esClient.search({
+            index: CONSTANTS.INDEX,
+            type: CONSTANTS.TYPE_USERS,
+            body: {
+                query:{
+                    bool :{
+                        must: [
+                            {
+                                term: {username: username}
+                            },
+                            {
+                                term: {password: password}
+                            }
+
+                        ]
+                    }
+                }
+            }
+        }).then(function(resp){
+            return resp.hits.hits;
+
+        }, function(err){
+            console.log("error in elastic call");
+        });
+    };
 
     //add user
     var addUser = function(body){
@@ -149,7 +176,8 @@ var service = function(){
         getAuthorById: getAuthorById,
         addBlog: addBlog,
         searchBlogByProfileId: searchBlogByProfileId,
-        addUser: addUser
+        addUser: addUser,
+        matchPassword: matchPassword
     };
 
 

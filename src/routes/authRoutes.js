@@ -17,8 +17,36 @@ var router = function(){
                     return res.json({});
                 }else {
                     //user created
-                    return res.json({id: user._id});
+                    //user is logged in by default
+                    req.login(user._id,function(err){
+                        if(err){
+                            next(err);
+                        }
+                        return res.json({id: user._id});
+                    });
                 }
+            })(req,res,next);
+        });
+
+    authRouter.route('/login')
+        .post(function(req,res,next){
+            passport.authenticate('local-login',function(err,user){
+                if(!user){
+                    //login failed
+                    return res.json({});
+                }else{
+                    //login success
+                    req.login(user,function(err){
+                        if(err){
+                            //error handling
+                            return next(err);
+                        }
+                        return  res.json({id: user});
+
+                    });
+
+                }
+
             })(req,res,next);
         });
 
