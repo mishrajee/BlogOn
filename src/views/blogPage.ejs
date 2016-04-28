@@ -1,4 +1,13 @@
-<h1>{{blog.name}}</h1>
-<p>{{blog.date}}</p>
-<p>{{blog.content}}</p>
-<button ng-click="navigateToAuthor()">{{blog.authorName}}</button>
+<div class="blog-content-wrapper">
+    <h1 class="blog-title">title goes here</h1>
+    <div class="blog-date-auth">
+        <p class="blog-date">{{blog.date}}</p>
+        <md-button class="author-btn" ng-click="navigateToAuthor()"><i class="fa fa-user" aria-hidden="true"></i> {{blog.authorName}}</md-button>
+    </div>
+    <div>
+        <p class="blog-summary blog-ctn">{{blog.summary}}</p>
+    </div>
+    <div>
+        <p class="blog-content blog-ctn">{{blog.content}}</p>
+    </div>
+</div>

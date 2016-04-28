@@ -29,3 +29,39 @@
     width: 96%;
     display: inline-block;
 }
+
+.blog-content-wrapper {
+    margin-left: 20%;
+    margin-right: 20%;
+}
+.blog-title {
+    text-align: center;
+    color: #3BA1C8;
+}
+.blog-date-auth {
+    display: inline-flex;
+    width: 100%;
+    position: relative;
+}
+.blog-date {
+    padding-top: 14px;
+    font-family: 'Roboto', serif;
+    color: #FF9017;
+    font-weight:bold;
+}
+.author-btn {
+    position: absolute;
+    right:0px;
+    color: #62B6D6;
+}
+.author-btn i {
+    color: #FF9017;
+}
+.blog-content {
+    text-align: center;
+}
+
+.blog-ctn {
+    font-size:20px;
+    line-height:1.5;
+}
