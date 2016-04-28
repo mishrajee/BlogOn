@@ -39,11 +39,9 @@ var dataController = function(esService){
             //not authorized to submit blog
             res.redirect('/');
         }
-
-        console.log("request received for submitting a blog");
         var body = req.body;
         //author id should be taken from session object only
-        body.authorId = req.user.id;
+        body.authorId = req.user;
 
         esService.addBlog(body).then(function(resp){
             console.log(resp);

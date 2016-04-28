@@ -1,4 +1,20 @@
-angular.module('blogonApp',['ngRoute','ngMaterial','ngCookies']);
+angular.module('blogonApp',['ngRoute','ngMaterial','ngCookies'])
+    .config(function($mdThemingProvider){
+        //config palette to match with application theme
+        //extend original indigo palette change the color that will be used
+        var appThemeMap = $mdThemingProvider.extendPalette('indigo', {
+            '500': '#62B6D6',
+            'contrastDefaultColor': 'dark'
+        });
+
+        //define extended palette as new
+        $mdThemingProvider.definePalette('appTheme', appThemeMap);
+
+        //use new palette
+        $mdThemingProvider.theme('default')
+            .primaryPalette('appTheme');
+
+    });
 
 angular.module('blogonApp').config(['$routeProvider',function($routeProvider){
     $routeProvider
