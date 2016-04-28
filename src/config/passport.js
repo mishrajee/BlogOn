@@ -41,7 +41,7 @@ var passportFun = function(app){
                         name: req.body.name
                     };
                     esService.addUser(user).then(function(resp){
-                        //user is added in the db
+                        //user is added in the db, return resp so that id can be fetched to store in session
                         return done(null,resp);
                     });
                 }

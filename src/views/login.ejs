@@ -2,16 +2,16 @@
     <div ng-show="loginFailed">
         <p class="warning-msg">Incorrect username password</p>
     </div>
-    <form>
+    <form name="loginForm" ng-submit="submit()">
         <md-input-container>
             <label>User Name</label>
-            <input type="text" ng-model="userName">
+            <input type="text" ng-model="userName" required>
         </md-input-container>
         <md-input-container>
             <label>Password</label>
-            <input type="password" ng-model="password">
+            <input type="password" ng-model="password" required>
         </md-input-container>
-        <md-button id="login-btn" class="md-fab md-primary md-mini" type="submit" ng-click="submit()">
+        <md-button id="login-btn" class="md-fab md-primary md-mini" type="submit">
             <i class="fa fa-sign-in"></i>
         </md-button>
     </form>

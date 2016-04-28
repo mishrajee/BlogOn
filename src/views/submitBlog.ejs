@@ -4,20 +4,20 @@
     </div>
 
     <div ng-show="isLoggedIn">
-        <form>
+        <form name="submitForm" ng-submit="submit()">
             <md-input-container class="md-block">
                 <label>Name or title of your blog</label>
-                <input type="text" ng-model="name">
+                <input type="text" ng-model="name" required>
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Summary</label>
-                <input type="text" ng-model="summary">
+                <input type="text" ng-model="summary" required>
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Content</label>
-                <textarea ng-model="content"  md-rows="5"></textarea>
+                <textarea ng-model="content"  md-rows="5" required></textarea>
             </md-input-container>
-            <md-button type="submit" class="submit-btn" class="md-raised md-primary" ng-click="submit()">Submit</md-button>
+            <md-button type="submit" class="submit-btn" class="md-raised md-primary">Submit</md-button>
         </form>
     </div>
 </div>

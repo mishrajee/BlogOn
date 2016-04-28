@@ -3,12 +3,16 @@
         <p class="warning-msg">Username already exist</p>
     </div>
     <div ng-show="passwordMisMatch">
-        Password and confirm password do not match
+        <p class="warning-msg">Password and confirm password do not match</p>
     </div>
-    <form>
+    <form name="signupForm" ng-submit="submit()">
+        <md-input-container class="md-block">
+            <label>Name</label>
+            <input type="text" ng-model="name" required>
+        </md-input-container>
         <md-input-container class="md-block">
             <label>User Name</label>
-            <input type="text" ng-model="username">
+            <input type="text" ng-model="username" required>
         </md-input-container>
         <md-input-container class="md-block">
             <label>Password</label>
@@ -34,6 +38,6 @@
             <input type="text" ng-model="about">
         </md-input-container>
 
-        <md-button class="submit-btn" class="md-raised md-primary" type="submit" ng-click="submit()">Submit</md-button>
+        <md-button class="submit-btn" class="md-raised md-primary" type="submit">Submit</md-button>
     </form>
 </div>

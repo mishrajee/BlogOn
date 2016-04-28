@@ -17,12 +17,12 @@ var router = function(){
                     return res.json({});
                 }else {
                     //user created
-                    //user is logged in by default
+                    //user should be logged in by default
                     req.login(user._id,function(err){
                         if(err){
                             next(err);
                         }
-                        return res.json({id: user._id, name: user._source.name});
+                        return res.json({id: user._id, name: req.body.name});
                     });
                 }
             })(req,res,next);
