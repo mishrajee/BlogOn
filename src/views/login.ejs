@@ -1,10 +1,20 @@
-<div ng-show="loginFailed">
-    Incorrect username password
+<div class="app-form-container">
+    <div ng-show="loginFailed">
+        <p class="warning-msg">Incorrect username password</p>
+    </div>
+    <form>
+        <md-input-container>
+            <label>User Name</label>
+            <input type="text" ng-model="userName">
+        </md-input-container>
+        <md-input-container>
+            <label>Password</label>
+            <input type="password" ng-model="password">
+        </md-input-container>
+        <md-button id="login-btn" class="md-fab md-primary md-mini" type="submit" ng-click="submit()">
+            <i class="fa fa-sign-in"></i>
+        </md-button>
+    </form>
+
+    <md-button class="submit-btn" class="submit-btn md-raised md-primary"  ng-click="navigateToSignUp()">Signup</md-button>
 </div>
-<form>
-    UserName : <input type="text" ng-model="userName"></br>
-    Password : <input type="password" ng-model="password"></br>
-    <button type="submit" ng-click="submit()">Login</button>
-</form>
-<h3>New User : </h3>
-<button ng-click="navigateToSignUp()">SignUp</button>

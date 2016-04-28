@@ -1,5 +1,6 @@
-<div ng-show="showLoggedOut">
-    Successfully logged out
-    <button ng-click="navigateToLogin()">Login again</button>
-    <button ng-click="navigateToHome()">Home</button>
+<div class="app-form-container">
+    <div ng-show="showLoggedOut">
+        <p class="success-msg">Successfully logged out</p>
+        <md-button class="submit-btn" class="md-raised md-primary" ng-click="navigateToLogin()">Login again</md-button>
+    </div>
 </div>

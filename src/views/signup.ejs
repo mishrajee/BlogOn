@@ -1,16 +1,39 @@
-<div ng-show="userExist">
-    Username already exist
+<div class="app-form-container">
+    <div ng-show="userExist">
+        <p class="warning-msg">Username already exist</p>
+    </div>
+    <div ng-show="passwordMisMatch">
+        Password and confirm password do not match
+    </div>
+    <form>
+        <md-input-container class="md-block">
+            <label>User Name</label>
+            <input type="text" ng-model="username">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Password</label>
+            <input type="password" ng-model="password">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Confirm password</label>
+            <input type="password" ng-model="confirmPassword">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Gender</label>
+            <md-select ng-model="gender">
+                <md-option value="male">male</md-option>
+                <md-option value="female">female</md-option>
+            </md-select>
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>Occupation</label>
+            <input type="text" ng-model="occupation">
+        </md-input-container>
+        <md-input-container class="md-block">
+            <label>About</label>
+            <input type="text" ng-model="about">
+        </md-input-container>
+
+        <md-button class="submit-btn" class="md-raised md-primary" type="submit" ng-click="submit()">Submit</md-button>
+    </form>
 </div>
-<div ng-show="passwordMisMatch">
-    Password and confirm password do not match
-</div>
-<form>
-    UserName : <input type="text" ng-model="username"></br>
-    Password : <input type="password" ng-model="password"></br>
-    Confirm Password : <input type="password" ng-model="confirmPassword"></br>
-    Name : <input type="text" ng-model="name"></br>
-    Gender : <input type="text" ng-model="gender"></br>
-    Occupation : <input type="text" ng-model="occupation"></br>
-    About : <input type="text" ng-model="about"></br>
-    <input type="submit" ng-click="submit()">
-</form>

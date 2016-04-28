@@ -59,10 +59,9 @@ angular.module('blogonApp').controller('mainController',['$scope','$mdDialog','$
         $mdOpenMenu(ev);
     };
 
-    $scope.navigateToUrl = function(path){
-        $location.path(path);
-    }
-
+    $scope.navigateToHome = function(){
+        $location.path(CONSTANTS.PATH.HOME);
+    };
 
 
 }]);

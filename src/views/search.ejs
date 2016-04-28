@@ -4,14 +4,16 @@
         <label>
             Search
         </label>
-        <md-icon md-font-icon="fa-search" class="fa md-primary"></md-icon>
+        <md-icon id="search-icon" md-font-icon="fa-search" class="fa md-primary"></md-icon>
         <form ng-submit="submit()">
-            <input ng-model="query" type="text">
+            <input ng-model="queryString" type="text">
         </form>
     </md-input-container>
 </md-content>
 <p>Result : </p>
 
-<div ng-repeat="blogData in blogs">
-    <blog-panel name="{{blogData.name}}" id="{{blogData.id}}" summary="{{blogData.summary}}" date="{{blogData.date}}" author-name="{{blogData.authorName}}" author-id="{{blogData.authorId}}"></blog-panel>
+<div class="blog-panel-main-container">
+    <div class="blog-panel-container" ng-repeat="blogData in blogs">
+        <blog-panel name="{{blogData.name}}" id="{{blogData.id}}" summary="{{blogData.summary}}" date="{{blogData.date}}" author-name="{{blogData.authorName}}" author-id="{{blogData.authorId}}"></blog-panel>
+    </div>
 </div>

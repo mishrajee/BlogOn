@@ -1,12 +1,23 @@
-<div ng-show="!isLoggedIn">
-    Please Login first
-</div>
+<div class="app-form-container">
+    <div ng-show="!isLoggedIn">
+        <p class="warning-msg">Please Login first</p>
+    </div>
 
-<div ng-show="isLoggedIn">
-    <form>
-        Title : <input type="text" ng-model="name"></br>
-        Summary : <input type="text" ng-model="summary"></br>
-        Content : <input type="text" ng-model="content"></br>
-        <button type="submit" ng-click="submit()">Submit</button>
-    </form>
+    <div ng-show="isLoggedIn">
+        <form>
+            <md-input-container class="md-block">
+                <label>Name or title of your blog</label>
+                <input type="text" ng-model="name">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Summary</label>
+                <input type="text" ng-model="summary">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Content</label>
+                <textarea ng-model="content"  md-rows="5"></textarea>
+            </md-input-container>
+            <md-button type="submit" class="submit-btn" class="md-raised md-primary" ng-click="submit()">Submit</md-button>
+        </form>
+    </div>
 </div>

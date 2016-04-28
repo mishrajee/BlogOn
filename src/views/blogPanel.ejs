@@ -1,18 +1,24 @@
-<md-content class="md-padding" layout-xs="column" layout="row">
-    <div flex-xs flex-gt-xs="50" layout="column">
-        <md-card md-theme="default" md-theme-watch>
-            <md-card-title>
-                <md-card-title-text>
-                    <md-card-actions layout="row" layout-align="center">
-                        <md-button ng-click="navigateToBlog(id)" class="md-headline">{{name}}</md-button>
+<div class="md-panel-parent">
+    <md-content class="md-padding" layout-xs="column" layout="row" layout-align="center">
+        <div flex-xs flex-gt-xs="50" layout="column">
+            <md-card md-theme="default" md-theme-watch>
+                <md-card-title>
+                    <md-card-title-text>
+                        <md-card-actions layout="row" layout-align="center">
+                            <md-button class="blog-panel-name" ng-click="navigateToBlog(id)" class="md-headline">{{name}}</md-button>
+                        </md-card-actions>
+                    </md-card-title-text>
+                </md-card-title>
+                <md-card-content>
+                    <p class="blog-panel-summary">{{summary}}</p>
+                </md-card-content>
+                <div>
+                    <span class="blog-panel-date" class="md-subhead"><p>{{date}}</p></span>
+                    <md-card-actions layout="row" layout-align="end center">
+                        <md-button class="blog-panel-author" ng-click="navigateToAuthor()"><i class="fa fa-user" aria-hidden="true"></i> {{authorName}}</md-button>
                     </md-card-actions>
-                    <span class="md-subhead">{{summary}}</span>
-                    <span class="md-subhead">{{date}}</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="navigateToAuthor()">- {{authorName}}</md-button>
-            </md-card-actions>
-        </md-card>
-    </div>
-</md-content>
+                </div>
+            </md-card>
+        </div>
+    </md-content>
+</div>

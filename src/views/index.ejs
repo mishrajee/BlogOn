@@ -44,20 +44,12 @@
 
 </head>
 <body >
-<div ng-cloak ng-controller="mainController">
-        <md-content id="top-nav-bar">
-            <md-tabs md-dynamic-height md-border-bottom>
-                <md-tab label="one" ng-click="navigateToUrl('/home')">
-                </md-tab>
-                <md-tab label="two" ng-click="navigateToUrl('/')">
-                </md-tab>
-                <md-tab label="three">
-                </md-tab>
-            </md-tabs>
-        </md-content>
+<div id="application-bar" ng-cloak ng-controller="mainController">
+    <i id="application-home-icon" class="fa fa-home fa-4x application-top-icon" aria-hidden="true" ng-click="navigateToHome()"></i>
+    <h1 id="application-title">App Title</h1>
     <md-menu id="user-pic-menu">
         <md-button aria-label="Profile Menu" ng-click="openMenu($mdOpenMenu, $event)">
-            <img id="user-pic" ng-src="/images/user_no_profile.png">
+            <i id="application-user-icon" class="fa fa-user fa-4x application-top-icon"></i>
         </md-button>
         <md-menu-content width="4">
             <md-menu-item ng-repeat="item in menuItems" ng-show="item.showWhenLoggedIn === isLoggedIn">
@@ -67,7 +59,8 @@
             </md-menu-item>
         </md-menu-content>
     </md-menu>
-    </div>
+</div>
+<hr id="application-line">
 <div ng-view></div>
 </body>
 </html>
