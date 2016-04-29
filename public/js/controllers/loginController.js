@@ -1,4 +1,6 @@
-angular.module('blogonApp').controller('loginController',['$scope','$location','authFactory','CONSTANTS','$cookies',function($scope,$location,authFactory,CONSTANTS,$cookies){
+angular.module('blogonApp').controller('loginController',[
+    '$scope','$location','authFactory','CONSTANTS','$cookies',
+    function($scope,$location,authFactory,CONSTANTS,$cookies){
     //redirect to home if already logged in
     if($cookies.get(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN)==='true'){
         //user is logged in, redirect to home

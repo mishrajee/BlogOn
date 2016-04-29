@@ -1,7 +1,6 @@
-angular.module('blogonApp').controller('homeController',['$scope','$location','apiFactory','CONSTANTS',function($scope,$location,apiFactory,CONSTANTS){
-    console.log("home controller.....");
-    $scope.homeMessage = "home message";
-
+angular.module('blogonApp').controller('homeController',[
+    '$scope','$location','apiFactory','CONSTANTS',
+    function($scope,$location,apiFactory,CONSTANTS){
     $scope.blogs= [];
 
     apiFactory.getAllBlogData().then(function(res){

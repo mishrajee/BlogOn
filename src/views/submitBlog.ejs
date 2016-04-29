@@ -2,6 +2,9 @@
     <div ng-show="!isLoggedIn">
         <p class="warning-msg">Please Login first</p>
     </div>
+    <div ng-show="errorBlog">
+        <p class="warning-msg">Something is wrong, blog not submitted</p>
+    </div>
 
     <div ng-show="isLoggedIn">
         <form name="submitForm" ng-submit="submit()">

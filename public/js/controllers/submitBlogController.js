@@ -1,4 +1,7 @@
-angular.module('blogonApp').controller('submitBlogController',['$scope','apiFactory','$cookies','CONSTANTS','$location','commonUtilityFactory',function($scope,apiFactory,$cookies,CONSTANTS,$location,commonUtilityFactory){
+angular.module('blogonApp').controller('submitBlogController',[
+    '$scope','apiFactory','$cookies','CONSTANTS','$location','commonUtilityFactory',
+    function($scope,apiFactory,$cookies,CONSTANTS,$location,commonUtilityFactory){
+    $scope.errorBlog = false;
 
     if($cookies.get(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN)==='true'){
         $scope.isLoggedIn = true;
@@ -24,6 +27,9 @@ angular.module('blogonApp').controller('submitBlogController',['$scope','apiFact
             if(resp._id){
                 //blog added succesfully
                 $location.path(CONSTANTS.PATH.BLOG_PAGE + '/'+resp._id);
+            }else{
+                //blog addition failed
+                $scope.errorBlog = true;
             }
         });
 

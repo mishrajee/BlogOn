@@ -42,8 +42,10 @@
     color: #FFA543;
 }
 
-#search-icon {
-    color: #FF9017;
+.app-search-icon {
+    color: #3BA1C8;
+    padding-top: 8px;
+    padding-left: 8px;
 }
 
 #user-pic-menu {
@@ -182,4 +184,8 @@
 .blog-summary {
     font-style: italic;
     padding-bottom: 30px;
+}
+
+.md-panel-parent md-content div md-card md-card-title {
+    display: inline-block;
 }

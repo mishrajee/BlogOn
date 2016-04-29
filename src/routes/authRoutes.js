@@ -22,6 +22,7 @@ var router = function(){
                         if(err){
                             next(err);
                         }
+                        console.log('signup by '+req.body.name);
                         return res.json({id: user._id, name: req.body.name});
                     });
                 }
@@ -41,6 +42,8 @@ var router = function(){
                             //error handling
                             return next(err);
                         }
+                        console.log('signup by '+user.name);
+
                         return  res.json({id: user.id, name:user.name});
 
                     });
@@ -52,6 +55,7 @@ var router = function(){
 
     authRouter.route('/logout')
         .get(function(req,res){
+            console.log('logout by ',req.user);
             req.logout();
             res.json({success: true});
         });

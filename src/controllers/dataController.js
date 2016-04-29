@@ -35,18 +35,20 @@ var dataController = function(esService){
 
     var submitBlog = function(req,res){
         //authenticate and put data in ES
-        if(!req.user){
+        console.log('request to submit blog');
+        if(!req.user) {
             //not authorized to submit blog
-            res.redirect('/');
-        }
-        var body = req.body;
-        //author id should be taken from session object only
-        body.authorId = req.user;
+            res.json({});
+        }else {
+            var body = req.body;
+            //author id should be taken from session object only
+            body.authorId = req.user;
 
-        esService.addBlog(body).then(function(resp){
-            console.log(resp);
-            res.json(resp);
-        });
+            esService.addBlog(body).then(function(resp){
+                console.log(resp);
+                res.json(resp);
+            });
+        }
     };
 
     var getBlogsByProfileId = function(req,res){

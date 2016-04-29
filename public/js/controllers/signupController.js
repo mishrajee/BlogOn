@@ -1,4 +1,6 @@
-angular.module('blogonApp').controller('signupController',['$scope','authFactory','$location','CONSTANTS','commonUtilityFactory',function($scope,authFactory,$location,CONSTANTS,commonUtilityFactory){
+angular.module('blogonApp').controller('signupController',[
+    '$scope','authFactory','$location','CONSTANTS','commonUtilityFactory','$cookies',
+    function($scope,authFactory,$location,CONSTANTS,commonUtilityFactory,$cookies){
     $scope.userExist = false;
     $scope.passwordMisMatch = false;
     //redirect to home if already logged in
@@ -23,6 +25,10 @@ angular.module('blogonApp').controller('signupController',['$scope','authFactory
 
         authFactory.signup(body).then(function(resp){
             if(resp.id){
+                //add login info in cookie
+                $cookies.put(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN,true);
+                $cookies.put(CONSTANTS.COOKIES.USER_ID,resp.id);
+                $cookies.put(CONSTANTS.COOKIES.USER_NAME,resp.name);
                 $location.path(CONSTANTS.PATH.PROFILE +'/'+resp.id);
             } else{
                 //signup failed

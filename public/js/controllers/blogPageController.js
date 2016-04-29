@@ -1,4 +1,6 @@
-angular.module('blogonApp').controller('blogPageController',['$scope','$location','$routeParams','apiFactory','CONSTANTS',function($scope,$location,$routeParams,apiFactory,CONSTANTS){
+angular.module('blogonApp').controller('blogPageController',[
+    '$scope','$location','$routeParams','apiFactory','CONSTANTS',
+    function($scope,$location,$routeParams,apiFactory,CONSTANTS){
     var blogId = $routeParams.blogId;
     var profileId;
     apiFactory.getBlogById(blogId).then(function(data){

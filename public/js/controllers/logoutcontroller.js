@@ -1,4 +1,6 @@
-angular.module('blogonApp').controller('logoutController',['$scope','$cookies','CONSTANTS','$location','authFactory',function($scope,$cookies,CONSTANTS,$location,authFactory){
+angular.module('blogonApp').controller('logoutController',[
+    '$scope','$cookies','CONSTANTS','$location','authFactory',
+    function($scope,$cookies,CONSTANTS,$location,authFactory){
     $scope.showLoggedOut = false;
 
     $cookies.put(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN,false);
