@@ -5,8 +5,6 @@ angular.module('blogonApp').controller('homeController',[
 
     apiFactory.getAllBlogData().then(function(res){
         $scope.blogs= [];
-        console.log("got data from factory");
-        console.log(res);
         for(var data in res){
             var blog = res[data]._source;
             blog.id = res[data]._id;

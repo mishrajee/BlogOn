@@ -7,7 +7,6 @@ angular.module('blogonApp').controller('profileController',[
         $scope.profile = data._source;
         $scope.profile.id = data._id;
         apiFactory.getBlogsByProfileId(profileId).then(function(res){
-            console.log(res);
             $scope.blogs = [];
             for(var i=0;i<res.length;i++){
                 var blog = res[i]._source;

@@ -1,7 +1,6 @@
 angular.module('blogonApp').controller('mainController',[
     '$scope','$mdDialog','$location','CONSTANTS','$cookies',
     function($scope,$mdDialog,$location,CONSTANTS,$cookies){
-    console.log("hello from main controller");
 
     $scope.profileId = $cookies.get(CONSTANTS.COOKIES.USER_ID);
     if($cookies.get(CONSTANTS.COOKIES.KEY_IS_LOGGED_IN)==='true'){

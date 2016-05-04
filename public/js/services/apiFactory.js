@@ -6,7 +6,6 @@ angular.module('blogonApp').factory('apiFactory',['CONSTANTS','$http',function(C
             method: 'GET',
             url: url
         }).then(function(res){
-            console.log(res);
             return res.data;
         });
     };
@@ -18,7 +17,6 @@ angular.module('blogonApp').factory('apiFactory',['CONSTANTS','$http',function(C
             url: url,
             data: body
         }).then(function(res){
-            console.log(res);
             return res.data;
         });
     };

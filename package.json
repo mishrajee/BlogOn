@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "bower install"
   },
   "author": "Abhinava Mishra",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.0",
+    "bower": "^1.7.9",
     "cookie-parser": "^1.4.1",
     "ejs": "^2.4.1",
     "elasticsearch": "^11.0.1",

@@ -9,7 +9,6 @@ angular.module('blogonApp').controller('logoutController',[
     //send request to server to log out
     //then show logged out message
     authFactory.logout().then(function(resp){
-        console.log(resp);
         if(resp.success){
             //logout successfull
             $scope.showLoggedOut = true;

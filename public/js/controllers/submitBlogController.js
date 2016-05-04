@@ -25,7 +25,7 @@ angular.module('blogonApp').controller('submitBlogController',[
         };
         apiFactory.submitBlog(blog).then(function(resp){
             if(resp._id){
-                //blog added succesfully
+                //blog added successfully
                 $location.path(CONSTANTS.PATH.BLOG_PAGE + '/'+resp._id);
             }else{
                 //blog addition failed

@@ -13,7 +13,6 @@ angular.module('blogonApp').directive('blogPanel',['$location','CONSTANTS',funct
         },
         controller: function($scope){
             $scope.navigateToAuthor = function(){
-                console.log("navigate to author");
                 $location.path(CONSTANTS.PATH.PROFILE+'/'+$scope.authorId)
             };
 

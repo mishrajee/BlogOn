@@ -3,7 +3,7 @@ var elasticsearch = require('elasticsearch');
 var CONSTANTS = require('../constants');
 
 var esClient = new elasticsearch.Client({
-    host: CONSTANTS.HOST
+    host: CONSTANTS.ES_HOST
 });
 
 var service = function(){
